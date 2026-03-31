@@ -1,4 +1,4 @@
-# 💎 Gemstone Classification Expert System
+# Gemstone Classification Expert System
 
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-CV_Model-ee4c2c)
@@ -7,27 +7,27 @@
 
 An end-to-end intelligent system that identifies and classifies 87 different types of gemstones. This application goes beyond traditional Computer Vision (CV) by integrating a **Hybrid Expert System** that fuses deep learning image classification with rule-based scientific mineralogy (Mohs Hardness, Refractive Index, and Specific Gravity).
 
-## ✨ Features
+## Features
 
-- **📷 Visual Classification (Computer Vision)**: Leverages a fine-tuned **ResNet18** model to classify gemstones directly from uploaded images.
-- **🔍 Physical Expert System (Rule-based)**: An inference engine that calculates probabilistic matches based purely on physical characteristics (Mohs, RI, SG) against a built-in Knowledge Base.
-- **🧠 Hybrid Inference (Fusion Ensemble)**: Combines the predictive power of the neural network with the exactness of the physical rule-based system (50:50 weighted average) to provide highly confident, combined predictions.
-- **💡 Explainable AI (XAI)**: A built-in reasoning facility (Transparent Reasoning) that acts like a gemologist, presenting human-readable justifications and insights on *why* a particular gemstone was chosen as the top prediction.
-- **🌐 Interactive Web UI**: A sleek, user-friendly interface built with **Streamlit**.
+- **Visual Classification (Computer Vision)**: Leverages a fine-tuned **ResNet18** model to classify gemstones directly from uploaded images.
+- **hysical Expert System (Rule-based)**: An inference engine that calculates probabilistic matches based purely on physical characteristics (Mohs, RI, SG) against a built-in Knowledge Base.
+- **Hybrid Inference (Fusion Ensemble)**: Combines the predictive power of the neural network with the exactness of the physical rule-based system (50:50 weighted average) to provide highly confident, combined predictions.
+- **Explainable AI (XAI)**: A built-in reasoning facility (Transparent Reasoning) that acts like a gemologist, presenting human-readable justifications and insights on *why* a particular gemstone was chosen as the top prediction.
+- **Interactive Web UI**: A sleek, user-friendly interface built with **Streamlit**.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Machine Learning**: PyTorch, TorchVision (ResNet18)
 - **Web App**: Streamlit
 - **Data Processing**: PIL, Pandas/NumPy
 - **Knowledge Base**: JSON
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Python 3.8 or higher
 - A CUDA-enabled GPU (optional but recommended for faster inference/training)
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 1. **Clone the repository** (if applicable) and navigate to the project directory:
    ```bash
@@ -47,7 +47,7 @@ An end-to-end intelligent system that identifies and classifies 87 different typ
    python generate_kb.py
    ```
 
-## 🖥️ Usage
+## Usage
 
 ### 1. Running the Web Application (Streamlit)
 To start the interactive interface, run the following command:
@@ -69,15 +69,18 @@ To run a quick prediction directly from your terminal:
 python predict.py path/to/your/image.jpg
 ```
 
-## 🗃️ Knowledge Base
+## Knowledge Base
 The system utilizes a structured JSON dataset (`knowledge_base.json`) derived from gemological laboratories. It maps 87 gemstone classes to their standard average values:
 - **Mohs Hardness**: Resistance to scratching (1.0 - 10.0 scale).
 - **Refractive Index (RI)**: How light propagates through the gem.
 - **Specific Gravity (SG)**: The density of the gem compared to water.
 
-## 🤝 Contributing
+## Contributing
 Contributions, issues, and feature requests are welcome! 
 Feel free to open an issue or submit a Pull Request if you'd like to improve the Knowledge Base accuracy or the CV model.
 
-## 📄 License
+## Preview
+You can access the preview [here](https://gemstone-identifier-system-i63eexzgfqi4e55cn5bvdd.streamlit.app/).
+
+## License
 This project is open-source and available under the [MIT License](LICENSE).
