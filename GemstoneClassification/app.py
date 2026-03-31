@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import torch
 import torch.nn as nn
@@ -13,11 +14,14 @@ st.write("Identifikasi batu permata menggunakan Model AI Visual (Computer Vision
 
 tab1, tab2, tab3 = st.tabs(["📷 Mode Visual (Gambar)", "🔍 Mode Sistem Pakar (Fisik)", "🧠 Mode Hibrida (Visual + Fisik)"])
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 @st.cache_resource
 def load_model():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     
-    with open("classes.json", "r") as f:
+    classes_path = os.path.join(BASE_DIR, "classes.json")
+    with open(classes_path, "r") as f:
         classes = json.load(f)
         
     num_classes = len(classes)
@@ -26,19 +30,21 @@ def load_model():
     num_ftrs = model.fc.in_features
     model.fc = nn.Linear(num_ftrs, num_classes)
     
+    model_path = os.path.join(BASE_DIR, "gemstone_model.pth")
     try:
-        model.load_state_dict(torch.load("gemstone_model.pth", map_location=device))
+        model.load_state_dict(torch.load(model_path, map_location=device))
         model = model.to(device)
         model.eval()
         return model, classes, device
     except Exception as e:
-        st.error(f"Failed to load model: {e}. Please ensure 'gemstone_model.pth' is in the directory.")
+        st.error(f"Failed to load model: {e}. Please ensure '{model_path}' is in the directory.")
         return None, None, None
 
 @st.cache_data
 def load_knowledge_base():
+    kb_path = os.path.join(BASE_DIR, "knowledge_base.json")
     try:
-        with open("knowledge_base.json", "r") as f:
+        with open(kb_path, "r") as f:
             return json.load(f)
     except Exception as e:
         st.error(f"Failed to load knowledge base: {e}")
